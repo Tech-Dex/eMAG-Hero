@@ -34,7 +34,7 @@ class EncounterGenerator
     {
         if ($this->hero->getSpeed() == $this->beast->getSpeed()) {
             if ($this->hero->getLuck() == $this->beast->getLuck())
-                return $this->hero;
+                return $this->hero; // This case is not specified in the description, so by default we will say that the hero will win.
             if ($this->hero->getLuck() > $this->beast->getLuck())
                 return $this->hero;
             return $this->beast;
