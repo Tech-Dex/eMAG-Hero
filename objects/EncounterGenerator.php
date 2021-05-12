@@ -1,6 +1,5 @@
 <?php
 
-use JetBrains\PhpStorm\Pure;
 
 class EncounterGenerator
 {
@@ -30,7 +29,7 @@ class EncounterGenerator
         return $this->beast;
     }
 
-    #[Pure] function firstAttack(): Hero|Beast
+    function firstAttack(): Hero|Beast
     {
         if ($this->hero->getSpeed() == $this->beast->getSpeed()) {
             if ($this->hero->getLuck() == $this->beast->getLuck())
@@ -48,14 +47,14 @@ class EncounterGenerator
     {
         $turns = $this->maxTurns;
         while ($turns--) {
-            echo "Round number ".($this->maxTurns-$turns).PHP_EOL;
+            echo "Round number " . ($this->maxTurns - $turns) . PHP_EOL;
             $firstAttacker->basicAttack($secondAttacker);
             if (!$secondAttacker->isAlive())
                 return $firstAttacker;
             $secondAttacker->basicAttack($firstAttacker);
             if (!$firstAttacker->isAlive())
                 return $secondAttacker;
-            echo "---------------------------------------------".PHP_EOL;
+            echo "---------------------------------------------" . PHP_EOL;
         }
     }
 

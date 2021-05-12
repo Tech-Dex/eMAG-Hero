@@ -1,6 +1,5 @@
 <?php
 
-use JetBrains\PhpStorm\Pure;
 
 class Hero extends BaseEntity
 {
@@ -42,7 +41,7 @@ class Hero extends BaseEntity
         );
     }
 
-    #[Pure] function fetchBasicDamage(BaseEntity $target): int
+    function fetchBasicDamage(BaseEntity $target): int
     {
         if ($target instanceof Beast)
             return $this->getStrength() - $target->getDefence();
@@ -72,15 +71,15 @@ class Hero extends BaseEntity
             return;
         }
         $this->setHealth($this->getHealth() - $damage);
-        echo "Beast dealt ".($damage)." to ".get_class($this).PHP_EOL;
-        echo get_class($this). " remains in: ".$this->getHealth()." HP".PHP_EOL;
+        echo "Beast dealt " . ($damage) . " to " . get_class($this) . PHP_EOL;
+        echo get_class($this) . " remains in: " . $this->getHealth() . " HP" . PHP_EOL;
     }
 
     function magicShield($damage)
     {
-        $this->setHealth($this->getHealth() - ($damage>>1));
-        echo "Beast dealt ".($damage>>1)." to ".get_class($this).PHP_EOL;
-        echo get_class($this). " remains in: ".$this->getHealth()." HP".PHP_EOL;
+        $this->setHealth($this->getHealth() - ($damage >> 1));
+        echo "Beast dealt " . ($damage >> 1) . " to " . get_class($this) . PHP_EOL;
+        echo get_class($this) . " remains in: " . $this->getHealth() . " HP" . PHP_EOL;
     }
 
     function rapidStrikeAttack(Beast $target, int $flatDamage)

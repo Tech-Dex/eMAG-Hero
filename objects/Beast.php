@@ -1,6 +1,5 @@
 <?php
 
-use JetBrains\PhpStorm\Pure;
 
 class Beast extends BaseEntity
 {
@@ -39,7 +38,7 @@ class Beast extends BaseEntity
         );
     }
 
-    #[Pure] function fetchBasicDamage(BaseEntity $target): int
+    function fetchBasicDamage(BaseEntity $target): int
     {
         if ($target instanceof Hero)
             return $this->getStrength() - $target->getDefence();
@@ -50,8 +49,8 @@ class Beast extends BaseEntity
     function takeHit($damage)
     {
         $this->setHealth($this->getHealth() - $damage);
-        echo "Hero dealt ".($damage)." to ".get_class($this).PHP_EOL;
-        echo get_class($this). " remains in: ".$this->getHealth()." HP".PHP_EOL;
+        echo "Hero dealt " . ($damage) . " to " . get_class($this) . PHP_EOL;
+        echo get_class($this) . " remains in: " . $this->getHealth() . " HP" . PHP_EOL;
     }
 
     function basicAttack(BaseEntity $target)
