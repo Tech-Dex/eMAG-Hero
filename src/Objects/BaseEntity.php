@@ -1,5 +1,6 @@
 <?php
 
+namespace EmagHero\Objects;
 
 abstract class BaseEntity
 {
@@ -129,6 +130,12 @@ abstract class BaseEntity
     function isAlive(): bool
     {
         return $this->getHealth() > 0;
+    }
+
+    public function getEntityName()
+    {
+        $array = explode("\\", get_class($this));
+        return end($array);
     }
 
     abstract function takeHit($damage);

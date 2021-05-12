@@ -1,5 +1,6 @@
 <?php
 
+namespace EmagHero\Objects;
 
 class Beast extends BaseEntity
 {
@@ -37,14 +38,14 @@ class Beast extends BaseEntity
         if ($target instanceof Hero)
             return $this->getStrength() - $target->getDefence();
 
-        throw new Exception("Target is not a hero");
+        throw new \Exception("Target is not a hero");
     }
 
     function takeHit($damage)
     {
         $this->setHealth($this->getHealth() - $damage);
-        echo "Hero dealt " . ($damage) . " to " . get_class($this) . PHP_EOL;
-        echo get_class($this) . " remains in: " . $this->getHealth() . " HP" . PHP_EOL;
+        echo "Hero dealt " . ($damage) . " to " . $this->getEntityName() . PHP_EOL;
+        echo $this->getEntityName() . " remains in: " . $this->getHealth() . " HP" . PHP_EOL;
     }
 
     function basicAttack(BaseEntity $target)
@@ -52,6 +53,6 @@ class Beast extends BaseEntity
         if ($target instanceof Hero) {
             $flatDamage = $this->fetchBasicDamage($target);
             $target->takeHit($flatDamage);
-        } else throw new Exception("Target is not a hero");
+        } else throw new \Exception("Target is not a hero");
     }
 }

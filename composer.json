@@ -1,0 +1,18 @@
+{
+  "require": {
+    "php": "^8.0",
+    "ext-json": "*"
+  },
+  "autoload": {
+    "psr-4": {
+      "EmagHero\\": "src/"
+    }
+  },
+  "scripts": {
+    "test": [
+      "@php src/emagia.php"
+    ]
+  },
+  "name": "dexter/emag-hero",
+  "description": "eMAG’s Hero"
+}

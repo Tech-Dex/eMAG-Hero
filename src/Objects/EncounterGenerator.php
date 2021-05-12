@@ -1,5 +1,6 @@
 <?php
 
+namespace EmagHero\Objects;
 
 class EncounterGenerator
 {

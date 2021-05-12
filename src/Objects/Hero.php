@@ -1,5 +1,6 @@
 <?php
 
+namespace EmagHero\Objects;
 
 class Hero extends BaseEntity
 {
@@ -40,7 +41,7 @@ class Hero extends BaseEntity
         if ($target instanceof Beast)
             return $this->getStrength() - $target->getDefence();
 
-        throw new Exception("Target is not a beast");
+        throw new \Exception("Target is not a beast");
     }
 
     function basicAttack(BaseEntity $target)
@@ -54,7 +55,7 @@ class Hero extends BaseEntity
                 return;
             }
             $target->takeHit($flatDamage);
-        } else throw new Exception("Target is not a beast");
+        } else throw new \Exception("Target is not a beast");
     }
 
     function takeHit($damage)
@@ -65,15 +66,16 @@ class Hero extends BaseEntity
             return;
         }
         $this->setHealth($this->getHealth() - $damage);
-        echo "Beast dealt " . ($damage) . " to " . get_class($this) . PHP_EOL;
-        echo get_class($this) . " remains in: " . $this->getHealth() . " HP" . PHP_EOL;
+        echo "Beast dealt " . ($damage) . " to " . $this->getEntityName() . PHP_EOL;
+        echo $this->getEntityName(). " remains in: " . $this->getHealth() . " HP" . PHP_EOL;
     }
 
     function magicShield($damage)
     {
         $this->setHealth($this->getHealth() - ($damage >> 1));
-        echo "Beast dealt " . ($damage >> 1) . " to " . get_class($this) . PHP_EOL;
-        echo get_class($this) . " remains in: " . $this->getHealth() . " HP" . PHP_EOL;
+        echo "Beast dealt " . ($damage >> 1) . " to " . $this->getEntityName() . PHP_EOL;
+
+        echo $this->getEntityName(). " remains in: " . $this->getHealth() . " HP" . PHP_EOL;
     }
 
     function rapidStrikeAttack(Beast $target, int $flatDamage)
