@@ -9,6 +9,31 @@ abstract class BaseEntity
     private int $speed;
     private int $luck;
 
+
+    /**
+     * Default values if not overridden in a class that extends this one.
+     */
+    const HEALTH = array(
+        "min" => 1,
+        "max" => 10,
+    );
+    const STRENGTH = array(
+        "min" => 1,
+        "max" => 10,
+    );
+    const DEFENCE = array(
+        "min" => 1,
+        "max" => 10,
+    );
+    const SPEED = array(
+        "min" => 1,
+        "max" => 10,
+    );
+    const LUCK = array(
+        "min" => 1,
+        "max" => 10,
+    );
+
     /**
      * BaseEntity constructor.
      */
