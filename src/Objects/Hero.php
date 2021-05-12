@@ -4,6 +4,8 @@ namespace EmagHero\Objects;
 
 class Hero extends BaseEntity
 {
+    use Traits\TRapidStrike, Traits\TMagicShield;
+
     const HEALTH = array(
         "min" => 70,
         "max" => 100,
@@ -67,19 +69,6 @@ class Hero extends BaseEntity
         }
         $this->setHealth($this->getHealth() - $damage);
         echo "Beast dealt " . ($damage) . " to " . $this->getEntityName() . PHP_EOL;
-        echo $this->getEntityName(). " remains in: " . $this->getHealth() . " HP" . PHP_EOL;
-    }
-
-    function magicShield($damage)
-    {
-        $this->setHealth($this->getHealth() - ($damage >> 1));
-        echo "Beast dealt " . ($damage >> 1) . " to " . $this->getEntityName() . PHP_EOL;
-
-        echo $this->getEntityName(). " remains in: " . $this->getHealth() . " HP" . PHP_EOL;
-    }
-
-    function rapidStrikeAttack(Beast $target, int $flatDamage)
-    {
-        $target->takeHit($flatDamage << 1);
+        echo $this->getEntityName() . " remains in: " . $this->getHealth() . " HP" . PHP_EOL;
     }
 }

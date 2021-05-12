@@ -4,6 +4,8 @@ namespace EmagHero\Objects;
 
 abstract class BaseEntity
 {
+
+
     private int $health;
     private int $strength;
     private int $defence;
@@ -143,5 +145,11 @@ abstract class BaseEntity
     abstract function basicAttack(BaseEntity $target);
 
     abstract function fetchBasicDamage(BaseEntity $target);
+
+    function typeIsHero(){
+        if (!($this instanceof \EmagHero\Objects\Hero)){
+            die("Only hero can use this spell");
+        }
+    }
 }
 
