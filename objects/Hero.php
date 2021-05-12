@@ -32,13 +32,7 @@ class Hero extends BaseEntity
      */
     function __construct()
     {
-        parent::__construct(
-            rand(self::HEALTH["min"], self::HEALTH["max"]),
-            rand(self::STRENGTH["min"], self::STRENGTH["max"]),
-            rand(self::DEFENCE["min"], self::DEFENCE["max"]),
-            rand(self::SPEED["min"], self::SPEED["max"]),
-            rand(self::LUCK["min"], self::LUCK["max"]),
-        );
+        parent::__construct();
     }
 
     function fetchBasicDamage(BaseEntity $target): int

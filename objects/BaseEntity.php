@@ -13,19 +13,14 @@ abstract class BaseEntity
 
     /**
      * BaseEntity constructor.
-     * @param int $health
-     * @param int $strength
-     * @param int $defence
-     * @param int $speed
-     * @param int $luck
      */
-    public function __construct(int $health, int $strength, int $defence, int $speed, int $luck)
+    public function __construct()
     {
-        $this->health = $health;
-        $this->strength = $strength;
-        $this->defence = $defence;
-        $this->speed = $speed;
-        $this->luck = $luck;
+        $this->health = rand(static::HEALTH["min"], static::HEALTH["max"]);
+        $this->strength = rand(static::STRENGTH["min"], static::STRENGTH["max"]);
+        $this->defence = rand(static::DEFENCE["min"], static::DEFENCE["max"]);
+        $this->speed = rand(static::SPEED["min"], static::SPEED["max"]);
+        $this->luck = rand(static::LUCK["min"], static::LUCK["max"]);
     }
 
     /**
