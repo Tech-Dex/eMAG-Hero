@@ -1,8 +1,6 @@
 <?php
 
 
-use JetBrains\PhpStorm\Pure;
-
 abstract class BaseEntity
 {
     private int $health;
@@ -103,7 +101,7 @@ abstract class BaseEntity
         $this->luck = $luck;
     }
 
-    #[Pure] function isAlive(): bool
+    function isAlive(): bool
     {
         return $this->getHealth() > 0;
     }
